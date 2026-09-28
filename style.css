@@ -1,0 +1,157 @@
+:root {
+  --cor-principal: #063d7a;
+  --cor-destaque: #ffb000;
+  --cor-fundo: #dce6f2;
+  --largura-card: 430px;
+}
+
+* { box-sizing: border-box; }
+
+html, body { min-height: 100%; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top, #ffffff 0, transparent 40%),
+    var(--cor-fundo);
+  color: #fff;
+}
+
+.pagina {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.card {
+  width: min(100%, var(--largura-card));
+  min-height: min(760px, calc(100svh - 36px));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--cor-principal);
+  border-radius: 26px;
+  box-shadow: 0 20px 55px rgba(0, 26, 63, .28);
+}
+
+.top-image {
+  min-height: 205px;
+  background-color: #b8c4d1;
+  background-size: cover;
+  background-position: center;
+}
+
+.faixa-branca {
+  height: 72px;
+  flex: 0 0 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: #fff;
+}
+
+.faixa-branca img {
+  width: 78%;
+  max-height: 700px;
+  object-fit: contain;
+  position: absolute;
+  bottom: -160px;
+  filter: drop-shadow(0 10px 8px rgba(0, 0, 0, .22));
+}
+
+.conteudo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 42px 28px 24px;
+  text-align: center;
+}
+
+.categoria {
+  margin: 0 0 6px;
+  color: #bcd8f6;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 340px;
+  margin: 0 auto 14px;
+  font-size: clamp(1.35rem, 6vw, 1.75rem);
+  line-height: 1.15;
+}
+
+.nome {
+  width: fit-content;
+  margin: 0 auto 24px;
+  padding: 7px 14px;
+  border-radius: 10px;
+  background: var(--cor-destaque);
+  color: #111;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.contatos { display: grid; gap: 11px; }
+
+.contato {
+  min-height: 56px;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: center;
+  gap: 13px;
+  padding: 6px 15px 6px 7px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 140px;
+  background: rgba(255,255,255,.08);
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: transform .2s, background .2s;
+}
+
+.contato:active { transform: scale(.98); }
+.contato:hover { background: rgba(255,255,255,.15); }
+
+.fundo-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50px;
+  background: var(--cor-destaque);
+}
+
+.fundo-icon img { width: 27px; height: 27px; object-fit: contain; }
+
+.servicos { margin: 23px 0 6px; font-weight: 700; }
+.instrucao { margin: 0; color: #c9ddf3; font-size: .82rem; }
+
+@media (max-width: 480px) {
+  .pagina { padding: 0; }
+  .card {
+    width: 100%;
+    min-height: 100svh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .top-image { min-height: clamp(170px, 27svh, 230px); }
+  .conteudo { padding-bottom: max(22px, env(safe-area-inset-bottom)); }
+}
+
+@media (max-height: 690px) {
+  .top-image { min-height: 145px; }
+  .faixa-branca { height: 52px; flex-basis: 52px; }
+  .faixa-branca img { max-height: 700px; bottom: -160px; }
+  .conteudo { padding-top: 32px; }
+  .nome { margin-bottom: 14px; }
+  .contatos { gap: 7px; }
+  .servicos { margin-top: 14px; }
+}
